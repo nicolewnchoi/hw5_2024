@@ -36,7 +36,7 @@ header{
     align-items: center;
 }
 
-/* Styling the navigation links to be by column */
+/* Styling the navigation links as a column */
 .nav_links{
     display: flex;
     flex-direction: column;
@@ -117,7 +117,7 @@ nav > ul {
         flex-basis: 275px;
     }
 
-    /* Using flex to layout the contents of the card*/
+    /* Using flex to layout the contents of the pricing on the card*/
     .pricing {
         flex-direction: row;
         align-items: center;
@@ -143,7 +143,7 @@ nav > ul {
         background-image: none;
     }
 
-    /**/
+    /* Styling the nav links to be in a row */
     .nav_links {
         display: flex;
         flex-direction: row;
@@ -172,7 +172,7 @@ nav > ul {
         flex-wrap: nowrap;
     }
 
-    /* Making the visibility of the title hidden to create white space */
+    /* Making the visibility of the title hidden to create white space. This includes padding as well. */
     #gallery{
         padding: 40px;
         visibility: hidden;
