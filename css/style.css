@@ -20,28 +20,40 @@
     }
 }
 
-/* Edit the body element to use the Poppins font with sans-serif as a backup. It should also use the image “concrete_seamless.png” as a background-image with a backup color of #f1f1f1. */
+/* Edit the body element to use the Poppins font with sans-serif as a backup. 
+Uses the image “concrete_seamless.png” as a background-image 
+with a backup color of #f1f1f1. */
 body {
     font-family: "Poppins", sans-serif;
     background-image: url("../images/concrete_seamless.png");
     background-color: #f1f1f1;
 }
 
-/**/
+/* Styling the header to be aligned in the center */
 header{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+/* Styling the navigation links to be by column */
 .nav_links{
     display: flex;
     flex-direction: column;
 }
 
+/* Setting the color of the visited links to be the same color */
 a:visited {
     color: #0000ff;
     text-decoration: none;
+}
+
+/* Using flex to layout the contents of the card*/
+.card {
+    flex-direction: column;
+    flex-basis: 450px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
 }
 
 /*Designing the card header*/
@@ -53,24 +65,13 @@ a:visited {
     border-top-right-radius: 50px;
 }
 
-/* Using flex to layout the contents of the card*/
-.card{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    flex-basis: 450px;
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
-    margin-bottom: 0px;
-}
-
 /* Using flex to layout the pricing*/
 .pricing{
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     flex-wrap: wrap;
     justify-content: center;
-    align-content: center;
+    /* align-content: center; */
 }
 
 /* Styling the images in the gallery class */
@@ -88,6 +89,12 @@ a:visited {
     justify-content: center;
 }
 
+/*Adding the navigation links with flex*/
+nav > ul {
+    display: flex;
+}
+
+/* 900px screen size or more */
 @media screen and (min-width: 900px) {
     /*Changing the layout of the header as the row*/
     header{
@@ -103,11 +110,6 @@ a:visited {
         list-style: none;
     }
 
-    /*Adding the navigation links with flex*/
-    nav > ul {
-        display: flex;
-    }
-
     /* Using flex to layout the contents of the card*/
     .card {
         display: flex;
@@ -115,6 +117,7 @@ a:visited {
         flex-basis: 275px;
     }
 
+    /* Using flex to layout the contents of the card*/
     .pricing {
         flex-direction: row;
         align-items: center;
@@ -126,34 +129,30 @@ a:visited {
         width: 100%;
     }
 
-    /*I purposely added the padding so that the first content won't be blocked*/
+    /*I purposely added the padding so that the first content won't be blocked by the header*/
     .about {
         padding-top: 100px;
     }
 }
 
+/* Print view */
 @media print {
-    /* Changing the font of the body */
+    /* Changing the font of the body to Arial and have no background image */
     body {
         font-family: Arial, Helvetica, sans-serif;
         background-image: none;
     }
 
-    /* Trying to space out elements in the navigation bar with flex */
-    /* nav ul{
-        display: grid;
-        justify-content: space-around;
-        grid-template-columns: auto auto auto auto;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-    }*/
-
-
+    /**/
     .nav_links {
         display: flex;
         flex-direction: row;
         flex-grow: 1
+    }
+
+    /* I couldn't get to spread the list items out with only flex. I just used margin... */
+    .nav_item {
+        margin: 0px 80px;
     }
 
     /* Styling the card to specifically match with the print view, especially with the flex-basis */
@@ -184,7 +183,7 @@ a:visited {
         display: none;
     }
 
-    /*Adding an emoji right in front of the text*/
+    /*Adding a thumbs-up emoji right in front of the text*/
     .card li:nth-child(2)::after{
         content: "👍";
     }
