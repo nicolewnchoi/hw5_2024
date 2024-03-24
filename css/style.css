@@ -1,0 +1,191 @@
+/*Animating the logo with keyframes*/
+#logo {
+    animation: mymove 5s;
+}
+@keyframes mymove {
+    from {
+        width: 25px;
+        opacity: 0
+    }
+    to {
+        width: 475px;
+        opacity: 1
+    }
+}
+
+/*Setting the animation to none for prefers-reduced-motion*/
+@media (prefers-reduced-motion) {
+    #logo {
+        animation: none;
+    }
+}
+
+/* Edit the body element to use the Poppins font with sans-serif as a backup. It should also use the image “concrete_seamless.png” as a background-image with a backup color of #f1f1f1. */
+body {
+    font-family: "Poppins", sans-serif;
+    background-image: url("../images/concrete_seamless.png");
+    background-color: #f1f1f1;
+}
+
+/**/
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav_links{
+    display: flex;
+    flex-direction: column;
+}
+
+a:visited {
+    color: #0000ff;
+    text-decoration: none;
+}
+
+/*Designing the card header*/
+.card > header{
+    background-color: #288088;
+    border: solid 2px #45ADAD;
+    padding: 20px 0 20px 0;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+/* Using flex to layout the contents of the card*/
+.card{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    flex-basis: 450px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    margin-bottom: 0px;
+}
+
+/* Using flex to layout the pricing*/
+.pricing{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+/* Styling the images in the gallery class */
+.gallery > img {
+    border: solid 10px #50C7C7;
+    width: 300px;
+    margin: 10px;
+}
+
+/* Using flex to create layout of the gallery*/
+.gallery {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+@media screen and (min-width: 900px) {
+    /*Changing the layout of the header as the row*/
+    header{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    /*The navigation has no bullet points*/
+    .nav_links{
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+    }
+
+    /*Adding the navigation links with flex*/
+    nav > ul {
+        display: flex;
+    }
+
+    /* Using flex to layout the contents of the card*/
+    .card {
+        display: flex;
+        flex-wrap: wrap;
+        flex-basis: 275px;
+    }
+
+    .pricing {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    /*Creating a sticky header*/
+    body > header {
+        position: fixed;
+        width: 100%;
+    }
+
+    /*I purposely added the padding so that the first content won't be blocked*/
+    .about {
+        padding-top: 100px;
+    }
+}
+
+@media print {
+    /* Changing the font of the body */
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-image: none;
+    }
+
+    /* Trying to space out elements in the navigation bar with flex */
+    /* nav ul{
+        display: grid;
+        justify-content: space-around;
+        grid-template-columns: auto auto auto auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }*/
+
+
+    .nav_links {
+        display: flex;
+        flex-direction: row;
+        flex-grow: 1
+    }
+
+    /* Styling the card to specifically match with the print view, especially with the flex-basis */
+    .card {
+        border: solid 2px #45ADDD;
+        display: flex;
+        flex-basis: 325px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+
+    /* The pricing class specifically has items aligned at the bottom*/
+    .pricing {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        flex-wrap: nowrap;
+    }
+
+    /* Making the visibility of the title hidden to create white space */
+    #gallery{
+        padding: 40px;
+        visibility: hidden;
+    }
+
+    /* Making display to none for all images to exactly create whitespace seen in the screenshot*/
+    #image1, #image2, #image3, #image4, #image5 {
+        display: none;
+    }
+
+    /*Adding an emoji right in front of the text*/
+    .card li:nth-child(2)::after{
+        content: "👍";
+    }
+}
